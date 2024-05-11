@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: mysql:5.7
+    ports:
+    - "3306:3306"
+    environment: # Inserir os dados
+      MYSQL_ROOT_PASSWORD: # senha
+      MYSQL_DATABASE: # nome_banco
+      MYSQL_USER: # nome do usuário
+      MYSQL_PASSWORD: # senha
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
